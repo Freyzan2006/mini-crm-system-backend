@@ -1,0 +1,27 @@
+
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/mini_crm
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: mini_crm
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
