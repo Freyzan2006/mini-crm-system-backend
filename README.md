@@ -4,6 +4,7 @@
 
 # Описание 
 
+[Mini CRM](https://github.com/Freyzan2006/mini-crm-system-backend) - система управления контактами и задачами.
 
 
 # Запуск проекта
