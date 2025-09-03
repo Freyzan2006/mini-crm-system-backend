@@ -4,6 +4,10 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import uz.freyzan.common.config.HibernateConfig;
 
+
+import java.util.Optional;
+import org.hibernate.query.Query;
+
 import java.util.List;
 
 public class UserRepository {
@@ -29,5 +33,15 @@ public class UserRepository {
         UserEntity user = session.get(UserEntity.class, id);
         session.close();
         return user;
+    }
+
+    public Optional<UserEntity> findByEmail(String email) {
+        Session session = HibernateConfig.getSessionFactory().openSession();
+        Query<UserEntity> query = session.createQuery(
+            "from UserEntity where email = :email", UserEntity.class);
+        query.setParameter("email", email);
+        UserEntity user = query.uniqueResult();
+        session.close();
+        return Optional.ofNullable(user);
     }
 }

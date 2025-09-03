@@ -1,6 +1,14 @@
 server:
   port: 8000
 
+jwt:
+  secret: your-super-secret-key-with-at-least-256-bits-length
+  expiration: 86400000 # 24 hours in milliseconds
 
+spring:
+  security:
+    user:
+      name: admin
+      password: password
 
 

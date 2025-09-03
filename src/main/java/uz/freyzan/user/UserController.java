@@ -9,7 +9,7 @@ import uz.freyzan.user.dto.CreateUserDTO;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/v1/users")
 @Tag(name = "Users", description = "CRUD операции с пользователями")
 public class UserController {
 
